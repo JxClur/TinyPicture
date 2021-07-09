@@ -1,2 +1,2 @@
 # Tiny Picture
-Compress picture with TinyPNG API
+A python script to compress picture with TinyPNG API
