@@ -1,9 +1,15 @@
 import tinify
 import argparse
+import sys
 
 """
 User Input
 """
+if len(sys.argv) != 5:
+	print('\nUsage: -S <ORIGINAL FILE> -O <OUTPUT FILENAME>')
+	print('e.g. python3 -S abc.png -O abc_compressed.png')
+	exit()
+
 my_parser = argparse.ArgumentParser(description='Compress picture with TinyPNG API')
 my_parser.add_argument('-S', '--source-file', type=str, dest='SOURCE',help="Input the original picture you want to compress.")
 my_parser.add_argument('-O', '--dest-file',type=str, dest='DEST', help="Specify the location you want to save to.")
