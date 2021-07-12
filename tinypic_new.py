@@ -25,18 +25,20 @@ def compress_image():
 	try:
 		with open(source_file, 'rb') as source:
 			source_data = source.read()
+			print(f"[+] Compressing {source_file} with TinyPNG API... ")
 			result_data = tinify.from_buffer(source_data).to_buffer()
 			with open(dest_file, 'wb') as dst:
 					dst.write(result_data)
 					dst.close()
 			source.close()
+			print("[+] Compressing successfully!")
 			
 	except tinify.errors.AccountError:
-		print('Invalid API Key.')
+		print('[-] Invalid API Key.')
 	except tinify.errors.ConnectionError:
-		print('Please check your internet connection.')
+		print('[-] Please check your internet connection.')
 	except tinify.errors.ClientError:
-		print('File type is not supported.')
+		print('[-] File type is not supported.')
 
 if __name__ == "__main__":
 	API_KEY = "<API_KEY>"
